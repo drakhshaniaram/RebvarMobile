@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.AramMobileApps.RebvarMobile"
+    version   = "1.0.0">
+<icon src="css/images/icon.png" />
+<plugin name="SplashScreen" value="org.apache.cordova.SplashScreen"/>
+<name>موبایل ریبوار</name>
+<description>
+دریافت آخرین اخبار گوشی های بازار - سرگرمی
+</description>
+<author email="drakhshani.aram@gmail.com">
+آرام درخشانی
+09142050459
+</author>
+</widget>
