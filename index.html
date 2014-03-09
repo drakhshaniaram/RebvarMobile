@@ -7,13 +7,22 @@
     <link rel="stylesheet" type="text/css" href="css/metro-bootstrap.css">
     <link rel="stylesheet" href="docs/font-awesome.css">
     <style type="text/css">
+		body{
+			background-image:url(css/images/bg.jpg);	
+		}
         #wrapper {
             margin: 2% auto;
-			width:100%;
+            width: 100%;
         }
-
-		.thumbnail.tile.tile-double{
-			width:100%;	
+        .thumbnail.tile.tile-double {
+            width: 100%;
+        }
+		.thumbnail{
+			margin-bottom: 5px;
+				
+		}
+		.thumbnail.tile{
+			opacity:0.9;	
 		}
     </style>
 
@@ -21,31 +30,48 @@
 
 <body>
     <div id="wrapper">
-        <div class="col-sm-3 col-md-3">
-            <div class="thumbnail tile tile-lime tile-double">
-                <a href="#">
-                    <h1>اخبار</h1>
-                </a>
+    	<div id="container">
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail tile tile-double tile-emerald">
+                    <a href="#">
+                        <img src="css/images/Allvoices.png">
+                        <h2>
+                اخبار
+                </h2>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-3 col-md-3">
-            <div class="thumbnail tile tile-double tile-red">
-                <a href="#">
-                    <img src="docs/twittertile.png">
-                    <h2>
-			سرگرمی
-			</h2>
-                </a>
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail tile tile-double tile-magenta">
+                    <a href="#">
+                        <img src="css/images/Happy.png">
+                        <h2>
+                سرگرمی
+                </h2>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-3 col-md-3">
-            <div class="thumbnail tile tile-orange tile-double">
-                <a href="#">
-                    <h1 class="tile-text">
-				درباره ما</h1>
-                </a>
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail tile tile-double tile-wisteria">
+                    <a href="#">
+                        <img src="css/images/about.png">
+                        <h2>
+                درباره ما
+                </h2>
+                    </a>
+                </div>
             </div>
-        </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail tile tile-double tile-lime">
+                    <a href="#">
+                        <img src="css/images/Sales Order.png">
+                        <h2>
+                سفارش برنامه موبایل
+                </h2>
+                    </a>
+                </div>
+            </div>
+		</div>            
     </div>
 </body>
 
