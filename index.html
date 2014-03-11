@@ -1,78 +1,96 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>برنامه موبایل ریبوار</title>
+		<link rel="stylesheet" type="text/css" href="css/metro-bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css"/>
+        <style type="text/css">
+            body {
+                background: url(css/images/bg.jpg);
+            }
+            #wrapper {
+                margin: 0 auto;
+                width: 100%;
+            }
+            .thumbnail.tile.tile-double {
+                width: 100%;
+            }
+            .thumbnail {
+                margin-bottom: 5px;
+                background:none;
+            }
+            .thumbnail.tile {
+                border-bottom:2px solid #f9f9f9;
+                background: none;
+            }
+            #last-tile {
+                border-bottom:none;
+            }
+            /* FROM THIS - IS NEW */
+        </style>
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery.mobile-1.4.0-rc.1.js"></script>
+    </head>
+    
+    <body>
+        <div id="wrapper">
+	        <div data-role="panel" id="panel" data-position="right" data-theme="a" data-display="push">
+            	<h1>0914 205 0459</h1>
+            </div>
+            <div data-role="header">
+                <a data-iconpos="notext" data-role="button" data-icon="home" title="Home">Home</a>
+                 <h1>A</h1>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>برنامه موبایل ریبوار</title>
-    <link rel="stylesheet" type="text/css" href="css/metro-bootstrap.css">
-    <link rel="stylesheet" href="docs/font-awesome.css">
-    <style type="text/css">
-		body{
-			background-image:url(css/images/bg.jpg);	
-		}
-        #wrapper {
-            margin: 2% auto;
-            width: 100%;
-        }
-        .thumbnail.tile.tile-double {
-            width: 100%;
-        }
-		.thumbnail{
-			margin-bottom: 5px;
-				
-		}
-		.thumbnail.tile{
-			opacity:0.9;	
-		}
-    </style>
-
-</head>
-
-<body>
-    <div id="wrapper">
-    	<div id="container">
+                <a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu"></a>
+            </div>
+           
             <div class="col-sm-6 col-md-3">
-                <div class="thumbnail tile tile-double tile-emerald">
+                <div class="thumbnail tile tile-double">
                     <a href="#">
                         <img src="css/images/Allvoices.png">
-                        <h2>
+                         <h2>
                 اخبار
                 </h2>
+
                     </a>
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
-                <div class="thumbnail tile tile-double tile-magenta">
+                <div class="thumbnail tile tile-double">
                     <a href="#">
                         <img src="css/images/Happy.png" />
-                        <h2>
+                         <h2>
                 سرگرمی
                 </h2>
+
                     </a>
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
-                <div class="thumbnail tile tile-double tile-wisteria">
+                <div class="thumbnail tile tile-double">
                     <a href="#">
                         <img src="css/images/About.png" />
-                        <h2>
+                         <h2>
                 درباره ما
                 </h2>
+
                     </a>
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
-                <div class="thumbnail tile tile-double tile-lime">
+                <div class="thumbnail tile tile-double" id="last-tile">
                     <a href="#">
                         <img src="css/images/Sales Order.png" />
-                        <h2>
+                         <h2>
                 سفارش برنامه موبایل
                 </h2>
+
                     </a>
                 </div>
             </div>
-		</div>            
-    </div>
-</body>
+        </div>
+    </body>
 
 </html>
