@@ -4106,7 +4106,7 @@ button[disabled],
 }
 html .ui-bar-a,html .ui-page-theme-a .ui-bar-inherit,html .ui-bar-a .ui-bar-inherit,html .ui-body-a .ui-bar-inherit,html body .ui-group-theme-a .ui-bar-inherit{background:#2c3e50;border-color:#2c3e50;color:#fff;font-weight:bold}
 html .ui-bar-a{border-width:1px;border-style:solid}
-
+html .ui-overlay-a,html .ui-page-theme-a,html .ui-page-theme-a .ui-panel-wrapper{background:#f9f9f9;border-color:#bbb;color:#333}
 html .ui-body-a,html .ui-page-theme-a .ui-body-inherit,html .ui-bar-a .ui-body-inherit,html .ui-body-a .ui-body-inherit,html body .ui-group-theme-a .ui-body-inherit,html .ui-panel-page-container-a{background:#fff;border-color:#2c3e50;color:#333}
 html .ui-body-a{border-width:1px;border-style:solid}
 html .ui-page-theme-a a,html .ui-bar-a a,html .ui-body-a a,html body .ui-group-theme-a a{color:#4e6d8d;font-weight:bold}
@@ -4170,7 +4170,7 @@ html .ui-page-theme-d .ui-radio-on:after,html .ui-bar-d .ui-radio-on:after,html 
 
 html .ui-bar-e,html .ui-page-theme-e .ui-bar-inherit,html .ui-bar-e .ui-bar-inherit,html .ui-body-e .ui-bar-inherit,html body .ui-group-theme-e .ui-bar-inherit{background:#f1c40f;border-color:#f1c40f;color:#fff;font-weight:bold}
 html .ui-bar-e{border-width:1px;border-style:solid}
-
+html .ui-overlay-e,html .ui-page-theme-e,html .ui-page-theme-e .ui-panel-wrapper{background:#f9f9f9;border-color:#bbb;color:#333}
 html .ui-body-e,html .ui-page-theme-e .ui-body-inherit,html .ui-bar-e .ui-body-inherit,html .ui-body-e .ui-body-inherit,html body .ui-group-theme-e .ui-body-inherit,html .ui-panel-page-container-e{background:#fff;border-color:#f1c40f;color:#333}
 html .ui-body-e{border-width:1px;border-style:solid}
 html .ui-page-theme-e a,html .ui-bar-e a,html .ui-body-e a,html body .ui-group-theme-e a{color:#f4d03f;font-weight:bold}
@@ -4186,7 +4186,7 @@ html .ui-page-theme-e .ui-radio-on:after,html .ui-bar-e .ui-radio-on:after,html 
 
 html .ui-bar-f,html .ui-page-theme-f .ui-bar-inherit,html .ui-bar-f .ui-bar-inherit,html .ui-body-f .ui-bar-inherit,html body .ui-group-theme-f .ui-bar-inherit{background:#3498db;border-color:#3498db;color:#fff;font-weight:bold}
 html .ui-bar-f{border-width:1px;border-style:solid}
-
+html .ui-overlay-f,html .ui-page-theme-f,html .ui-page-theme-f .ui-panel-wrapper{background:#f9f9f9;border-color:#bbb;color:#333}
 html .ui-body-f,html .ui-page-theme-f .ui-body-inherit,html .ui-bar-f .ui-body-inherit,html .ui-body-f .ui-body-inherit,html body .ui-group-theme-f .ui-body-inherit,html .ui-panel-page-container-f{background:#fff;border-color:#3498db;color:#333}
 html .ui-body-f{border-width:1px;border-style:solid}
 html .ui-page-theme-f a,html .ui-bar-f a,html .ui-body-f a,html body .ui-group-theme-f a{color:#5dade2;font-weight:bold}
@@ -4202,7 +4202,7 @@ html .ui-page-theme-f .ui-radio-on:after,html .ui-bar-f .ui-radio-on:after,html 
 
 html .ui-bar-g,html .ui-page-theme-g .ui-bar-inherit,html .ui-bar-g .ui-bar-inherit,html .ui-body-g .ui-bar-inherit,html body .ui-group-theme-g .ui-bar-inherit{background:#2ecc71;border-color:#2ecc71;color:#fff;font-weight:bold}
 html .ui-bar-g{border-width:1px;border-style:solid}
-
+html .ui-overlay-g,html .ui-page-theme-g,html .ui-page-theme-g .ui-panel-wrapper{background:#f9f9f9;border-color:#bbb;color:#333}
 html .ui-body-g,html .ui-page-theme-g .ui-body-inherit,html .ui-bar-g .ui-body-inherit,html .ui-body-g .ui-body-inherit,html body .ui-group-theme-g .ui-body-inherit,html .ui-panel-page-container-g{background:#fff;border-color:#2ecc71;color:#333}
 html .ui-body-g{border-width:1px;border-style:solid}
 html .ui-page-theme-g a,html .ui-bar-g a,html .ui-body-g a,html body .ui-group-theme-g a{color:#55d98d;font-weight:bold}
@@ -4211,6 +4211,55 @@ html .ui-page-theme-g a:hover,html .ui-bar-g a:hover,html .ui-body-g a:hover,htm
 html .ui-page-theme-g a:active,html .ui-bar-g a:active,html .ui-body-g a:active,html body .ui-group-theme-g a:active{color:#55d98d}
 html .ui-page-theme-g .ui-btn,html .ui-bar-g .ui-btn,html .ui-body-g .ui-btn,html body .ui-group-theme-g .ui-btn,html body .ui-btn.ui-btn-g,html .ui-page-theme-g .ui-btn:visited,html .ui-bar-g .ui-btn:visited,html .ui-body-g .ui-btn:visited,html body .ui-group-theme-g .ui-btn:visited,html body .ui-btn.ui-btn-g:visited{background:#2ecc71;border-color:#2ecc71;color:#fff}
 html .ui-page-theme-g .ui-btn:hover,html .ui-bar-g .ui-btn:hover,html .ui-body-g .ui-btn:hover,html body .ui-group-theme-g .ui-btn:hover,html body .ui-btn.ui-btn-g:hover{background:#55d98d;border-color:#55d98d;color:#fff}
+html .ui-page-theme-g .ui-btn:active,html .ui-bar-g .ui-btn:active,html .ui-body-g .ui-btn:active,html body .ui-group-theme-g .ui-btn:active,html body .ui-btn.ui-btn-g:active{background:#55d98d;border-color:#55d98d;color:#fff}
+html .ui-page-theme-g .ui-btn.ui-btn-active,html .ui-bar-g .ui-btn.ui-btn-active,html .ui-body-g .ui-btn.ui-btn-active,html body .ui-group-theme-g .ui-btn.ui-btn-active,html body .ui-btn.ui-btn-g.ui-btn-active,html .ui-page-theme-g .ui-flipswitch-active,html .ui-bar-g .ui-flipswitch-active,html .ui-body-g .ui-flipswitch-active,html body .ui-group-theme-g .ui-flipswitch-active,html body .ui-flipswitch.ui-bar-g.ui-flipswitch-active,html .ui-page-theme-g .ui-slider-track .ui-btn-active,html .ui-bar-g .ui-slider-track .ui-btn-active,html .ui-body-g .ui-slider-track .ui-btn-active,html body .ui-group-theme-g .ui-slider-track .ui-btn-active,html body div.ui-slider-track.ui-body-g .ui-btn-active{background-color:#55d98d;border-color:#55d98d;color:#fff}
+html .ui-page-theme-g .ui-checkbox-on:after,html .ui-bar-g .ui-checkbox-on:after,html .ui-body-g .ui-checkbox-on:after,html body .ui-group-theme-g .ui-checkbox-on:after,html .ui-btn.ui-checkbox-on.ui-btn-g:after,html background-color: primary_color{border-color:#2ecc71;color:#fff}
+html .ui-page-theme-g .ui-radio-on:after,html .ui-bar-g .ui-radio-on:after,html .ui-body-g .ui-radio-on:after,html body .ui-group-theme-g .ui-radio-on:after,html .ui-btn.ui-radio-on.ui-btn-g:after{background-color:#2ecc71;color:#fff}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'),
+    local('Lato-Regular'),
+    url(fonts/lato-regular.woff) format('woff'),
+    url(fonts/lato-regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'),
+    local('Lato-Bold'),
+    url(fonts/lato-bold.woff) format('woff'),
+    url(fonts/lato-bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Lato Black'),
+    local('Lato-Black'),
+    url(fonts/lato-black.woff) format('woff'),
+    url(fonts/lato-black.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Lato Italic'),
+    local('Lato-Italic'),
+    url(fonts/lato-italic.woff) format('woff'),
+    url(fonts/lato-italic.ttf) format('truetype');
+}
+@font-face {
+  font-family: "Flat-UI-Icons-24";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/Flat-UI-Icons-24.woff") format("woff"),
+    url(fonts/Flat-UI-Icons-24.ttf) format('truetype');
+}
+
 /* Use the following CSS code if you want to have a class per icon */
 /*Instead of a list of all class selectors,
  *you can use the generic selector below, but it's slower:
