@@ -83,6 +83,7 @@ var xml;
 			var content="";
 			var comments ="";
 			var answer = "";
+			var art_id_var = "";
 			var page_of_content="";
 			$(CAT_OBJECT.Categorys).each(function(index, cat_element) {
 				$("#category_list").append("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='c' class='ui-li-has-thumb'><a href='#page_of_cat_"+cat_element.id+"' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='"+cat_element.picpath+"' class='ui-li-thumb list_img' /><h3 class='ui-li-heading'>"+cat_element.name+"</h3><span class=;ui-icon ui-icon-arrow-r ui-icon-shadow;>&nbsp;</span></a></li>");
@@ -103,10 +104,11 @@ var xml;
 									
 									}
 									comments+="<h4 class='comm_user_info'>"+comm_element.user_name + " " +comm_element.user_family+"</h4><p class='comm_text'>"+comm_element.text+"</p><h4 class='answ_pasokh'>پاسخ</h4><p class='answ_class'>"+answer+"</p>";
+									art_id_var = art_element.id;
                             });
-							content+="<div data-theme='a' data-form='ui-body-a' class='ui-body ui-body-a ui-corner-all'><p><img src='"+art_element.picpath+"' class='imgHeader_in_pages img-circle' /><div id='art_"+art_element.id+"'><h3>"+art_element.title+"</h3><p>"+art_element.text+"</p></div></p><div data-role='collapsible' data-theme='b' data-content-theme='b' data-iconpos='left' class='comment_coll_wrap'><h4>نظرات شما</h4><p id='comment_form_"+art_element.id+"'><input type='text' placeholder='نام و نام خانوادگی' id='comm_user_name_family_"+art_element.id+"'/><br><textarea placeholder='متن نظر' id='comm_text_area_"+art_element.id+"'></textarea><input type='button' value='ارسال نظر' class='send_comm_btn' data-art-id='"+art_element.id+"' data-cat-id='"+art_elememt.cat_id+"'/></p><div><div id='new_comment_submited_"+art_element.id+"'></div>"+comments+"</div></div></div>";
+							content+="<div data-theme='a' data-form='ui-body-a' class='ui-body ui-body-a ui-corner-all'><p><img src='"+art_element.picpath+"' class='imgHeader_in_pages img-circle' /><div id='art_"+art_element.id+"'><h3>"+art_element.title+"</h3><p>"+art_element.text+"</p></div></p><div data-role='collapsible' data-theme='b' data-content-theme='b' data-iconpos='left' class='comment_coll_wrap'><h4>نظرات شما</h4><p id='comment_form_"+art_element.id+"'><input type='text' placeholder='نام و نام خانوادگی' id='comm_user_name_family_"+art_element.id+"' required/><br><textarea placeholder='متن نظر' id='comm_text_area_"+art_element.id+"' required></textarea><input type='button' value='ارسال نظر' class='send_comm_btn' data-art-id='"+art_element.id+"' data-cat-id='"+art_element.cat_id+"' onclick='var art_id=Number($(this).data(\"art-id\")); var text= $(\"#comm_text_area_\"+art_id).text(); var cat_id = Number($(this).data(\"cat-id\")); var comm_user_name = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[0];var comm_user_family = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[1]; var comm_text = $(\"#comm_text_area_\"+art_id).val(); send2Server(art_id, cat_id, comm_user_name, comm_user_family, comm_text)'/></p><div><div id='new_comment_submited_"+art_element.id+"'></div>"+comments+"</div></div></div>";
 							}
-                    });
+              });
 					// تولید و چسباندن تک صفحه ی مطلب
 					$("body").append("<div id='page_of_cat_"+cat_element.id+"' data-role='page'><div data-role='header' data-fullscreen='true'><a data-iconpos='notext' data-role='button' data-icon='home' title='صفحه اصلی' href='#mainPage'>صفحه اصلی</a><h1>"+cat_element.name+"</h1><a data-iconpos='notext' href='#panel' data-role='button'data-icon='grid'></a></div><div data-role='content'>"+content+"</div></div>");
 					}else{ // ساختن صفحه ی لیست عنوان + صفحه ی توضیحات
@@ -131,16 +133,12 @@ var xml;
 					var decoded = $("<div/>").html(str).text();
 					return decoded;
 				}
-		$(".send_comm_btn").click(function(e) {
-            var art_id = Number($(this).data("art-id"));
-			var cat_id = Number($(this).data("cat-id"));
-			var comm_text = $("#comm_text_area_"+art_id);
-			var comm_user_name_family = $("#comm_user_name_family_"+art_id).split(" ");
-
+		function send2Server(art_id, cat_id, username, user_family, textval){
+			console.log(art_id + " " + cat_id + " " +username + " " +user_family + " " +textval);
 			$.ajax({
 				url: "http://localhost/RebvarDBM/request_submit_comment.php",
 				type:"POST",
-				data:{user_name: comm_user_name_family[0], user_family: comm_user_name_family[1], user_phone_number: "", text: comm_text, comment_art_id: art_id, comment_art_cat_id:cat_id , user_status: ""},
+				data:{user_name: username, user_family: user_family, user_phone_number: "", text: textval, comment_art_id: art_id, comment_art_cat_id: cat_id , user_status: "new"},
 				success: function(resp){
 					$("#comment_form_"+art_id).slideUp();
 					$("#new_comment_submited_"+art_id).html(resp);
@@ -149,4 +147,4 @@ var xml;
 						$("#new_comment_submited_"+art_id).html(err);
 						}
 				})
-        });
+			}
