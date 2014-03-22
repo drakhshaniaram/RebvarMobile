@@ -1,0 +1,52 @@
+body {
+	direction: rtl;
+	font-family: tahoma;
+}
+.ui-listview > .ui-li-static, .ui-listview > .ui-li-divider, .ui-listview > li > a.ui-btn {
+	text-align: center;
+}
+.ui-btn-icon-right {
+	padding-right: 0;
+}
+.list_img {
+	height: 100%;
+	z-index: 1000;
+}
+.ui-listview .ui-li-has-thumb > img:first-child, .ui-listview .ui-li-has-thumb > .ui-btn > img:first-child, .ui-listview .ui-li-has-thumb .ui-li-thumb {
+	max-width: 50%;
+	max-height: 100%;
+}
+html .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html body .ui-btn.ui-btn-a, html .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html body .ui-btn.ui-btn-a:visited {
+}
+.imgHeader_in_pages {
+	width: 100%;
+	height: 250px;
+}
+.ui-content {
+	padding: 0;
+}
+.ui-content h1, .ui-content h2, .ui-content h3, .ui-content h4, .ui-content h5, .ui-content h6, .ui-content a {
+	padding: 1em;
+}
+.main_logo {
+	margin: 0 auto;
+}
+
+.ui-body {
+	margin: 5px 10px 10px 10px;
+}
+.ui-collapsible-inset, .ui-collapsible-set {
+	margin: 0;
+}
+.ui-corner-all {
+	border-radius: 0;
+}
+comment_coll_wrap {
+	text-align: right !important;
+}
+.ui-collapsible-heading .ui-btn{text-align:right}
+
+.ui-collapsible-inset.ui-collapsible-themed-content .ui-collapsible-content {
+    border-left-width: 0;
+    border-right-width: 0;
+}

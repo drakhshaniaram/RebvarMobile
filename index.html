@@ -1,49 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
-  <script src="js/jquery.js"></script>
-  <script src="js/jquery.mobile-1.4.2.min.js"></script>
-</head>
-<body>
-<!--Home Page(1)-->
-<div data-role="page" id="page">
-	<div data-role="header"> 
-		<h1>کاندیدەکانی ی.ن.ک</h1>
-	</div>
-	<div data-role="content">	
-		<div id="category">
-		</div>		
-	</div>
-	<div data-role="footer" class="footer">
-		<h4>دەنگی هەموومان: یەکێتی نیشتمانی کوردستان</h4>
-	</div>
-</div>
-<script type="text/javascript" charset="utf-8">
-		var xml;
-		$(document).ready(function(){
-					$.get('http://localhost/RebvarDBM/request_get_cat_arts.php', function(data,status){
-						XMLParser(data);
-					  });
-		});
-        //loading XML file and parsing it to .main div.
-        function XMLParser(data) {
-            xml = data;
-            $(xml).find("category").each(function () {
-                var cat_id = $(this).attr("id");
-				var cat_name = $(this).attr("name");
-				var cat_picturepath = $(this).attr("picture_path");
-				$(this).find("article").each(function(index, element) {
-                    var art_id = $(this).attr("id");
-					var art_title = $(this).attr("title");
-					var art_text = $(this).attr("text");
-					$("#category").html(art_text);
-					console.log(art_title);
-                });
-            });
-        }
-</script>
-</body>
+    
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/wow-flat-theme-from-adobe-kuler.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons.min.css">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/css_global.css">
+
+    </head>
+    
+    <body>
+           
+        <!--Home Page(1)-->
+        
+        <div data-role="page" id="mainPage" class="ui-page-theme-e">
+            <div data-role="panel" id="panel" data-position="right" data-theme="a" data-display="push">
+                <p id="ad">جهت درخواست سفارشات طراحی و برنامه نویسی موبایل با شماره های ذیر تماس حاصل فرمائید:
+                    <br>09142050459</p>
+                    
+            </div>
+            <div data-role="header" data-fullscreen="true">
+                <a data-iconpos="notext" data-role="button" data-icon="home" title="صفحه اصلی" href="#mainPage">صفحه اصلی</a>
+                 <h1>موبایل ریبوار بوکان</h1>
+
+                <a data-iconpos="notext" href="#panel" data-role="button" data-icon="grid"></a>
+            </div>
+            <div data-role="content" id="main_content">
+                <div data-role="collapsible" data-theme="b" data-content-theme="b" data-iconpos="left" class="comment_coll_wrap">
+                    <h4>نظرات شما</h4>
+                    <p><input type="text" placeholder="نام و نام خانوادگی"/><br>
+						<textarea placeholder="متن نظر"></textarea>
+                        <input type="button" id="" value="ارسال نظر"/>
+                    </p>
+                    <div><h4>نام کاربر</h4><p>متن نظر</p><h4>پاسخ ریبوار موبایل:</h4><p>متن پاسخ</p></div>
+                </div>
+                <ul id="category_list" data-role="listview" data-inset="true">
+                    <li data-role="list-divider" data-theme="a">لیست موضوعات</li>
+                </ul>
+            </div>
+            <div data-role="footer" class="footer">
+                	<h4>تجربه ای نو در غرب کشور</h4>
+
+            </div>
+        </div>
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <script src="js/jquery.mobile.fastButtons.js"></script>
+        <script src="js/engine.js"></script>
+<!--        <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+		<script type="text/javascript" charset="utf-8" src="deviceinformation.js"></script>
+        <script type="text/javascript">
+        	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+			deviceInfo.get(function(result) {
+					console.log("result = " + result);
+				}, function() {
+					console.log("error");
+				});
+        </script>-->
+        
+    </body>
+
 </html>

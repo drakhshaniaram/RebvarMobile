@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.phonegap.example"
+    version   = "1.0.0">
+<icon src="images/icon.png" />
+<name>لیستی گۆڕان 117</name>
+<description>
+ناساندنی کاندیدەکانی لیستی گۆڕان
+تایبەت بە فرۆش
+</description>
+<author href="https://www.symbiansoftgroup.com" email="drakhshani.aram@gmail.com">
+جلال رشید درخشانی
+ئالان صدیق
+</author>
+</widget>
