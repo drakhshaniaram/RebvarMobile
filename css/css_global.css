@@ -50,3 +50,5 @@ comment_coll_wrap {
     border-left-width: 0;
     border-right-width: 0;
 }
+.ui-collapsible-themed-content .ui-collapsible-content{
+	border: none}
