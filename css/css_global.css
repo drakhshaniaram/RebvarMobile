@@ -25,13 +25,12 @@ html .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, 
 .ui-content {
 	padding: 0;
 }
-.ui-content h1, .ui-content h2, .ui-content h3, .ui-content h4, .ui-content h5, .ui-content h6, .ui-content a {
+.ui-content h1, .ui-content h2, .ui-content h3, .ui-content h5, .ui-content h6, .ui-content a {
 	padding: 1em;
 }
 .main_logo {
 	margin: 0 auto;
 }
-
 .ui-body {
 	margin: 5px 10px 10px 10px;
 }
@@ -44,11 +43,53 @@ html .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, 
 comment_coll_wrap {
 	text-align: right !important;
 }
-.ui-collapsible-heading .ui-btn{text-align:right}
-
-.ui-collapsible-inset.ui-collapsible-themed-content .ui-collapsible-content {
-    border-left-width: 0;
-    border-right-width: 0;
+.ui-collapsible-heading .ui-btn {
+	text-align: right
 }
-.ui-collapsible-themed-content .ui-collapsible-content{
-	border: none}
+.ui-collapsible-inset.ui-collapsible-themed-content .ui-collapsible-content {
+	border-left-width: 0;
+	border-right-width: 0;
+}
+.ui-collapsible-themed-content .ui-collapsible-content {
+	border: none
+}
+.old_comments_content {
+/*display:none;*/
+}
+.answ_text {
+	border-bottom: 1px dotted #CCC;
+	padding-bottom: 1em;
+}
+
+.ui-bar, .ui-body {
+	padding: 0;
+}
+.old_comments_content .comm_user_info, .old_comments_content .comm_text {
+	margin: 0;
+}
+.old_comments_content .answ_title, .old_comments_content .answ_text {
+	margin: 0;
+}
+.comm_text{margin-bottom:1em !important;}
+.user-img, .admin-img {
+	vertical-align: middle;
+	margin-left: 10px;
+}
+.enter-img {
+	vertical-align: middle
+}
+.ad {
+	padding: 50px 20px 20px;
+	text-align:center;
+}
+.phone_number {
+	text-align: center;
+	margin-top: 20px;
+}
+.phone_numbers span {
+	font-size: large;
+}
+ui-body ui-body-a ui-corner-all div p{padding:10px;}
+.art_body{
+	
+	padding:10px !important;}

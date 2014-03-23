@@ -1,8 +1,18 @@
 var xml;
 $(document).ready(function () {
-    $.get('http://localhost/RebvarDBM/request_get_cat_arts.php', function (data, status) {
-        XMLParser(data);
-    });
+	$.ajax({
+		url: 'http://localhost/RebvarDBM/request_get_cat_arts.php',
+		type:"POST",
+		success: function(data){
+			XMLParser(data);
+			},
+		error: function(err){
+			alert("کاربر گرامی با عرض پوزش اشکالی در سرور رخ داده است، لطفاً بعداً تلاش فرمایید.");
+			}
+		});
+	$("img").error(function () {
+	  console.log("img error");
+	});
 });
 //loading XML file and parsing it to .main div.
 function XMLParser(data) {
@@ -85,7 +95,7 @@ function XMLParser(data) {
     var comments = "";
 	var comments_of_list2 = "";
     var answer = "";
-	var answer_of_lis2 = "";
+	var answer_of_list2 = "";
     var page_of_list2 = "";
     $(CAT_OBJECT.Categorys).each(function (index, cat_element) {
         $("#category_list").append("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='c' class='ui-li-has-thumb'><a href='#page_of_cat_" + cat_element.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + cat_element.picpath + "' class='ui-li-thumb list_img' /><h3 class='ui-li-heading'>" + cat_element.name + "</h3><span class=;ui-icon ui-icon-arrow-r ui-icon-shadow;>&nbsp;</span></a></li>");
@@ -103,15 +113,17 @@ function XMLParser(data) {
                                     answer = answ_element.text;
                                 }
                             });
-
+							comments += "<strong class='comm_user_info'><img src='img/user.png' class='user-img' />" + comm_element.user_name + " " + comm_element.user_family + "</strong><p class='comm_text'>" + comm_element.text + "</p><strong class='answ_title'><img src='img/enter.png' class='enter-img' /><img src='img/admin.png' class='admin-img' />پاسخ: </strong><p class='answ_text'>" + answer + "</p>";
+							answer = "";
                         }
-                        comments += "<h4 class='comm_user_info'>" + comm_element.user_name + " " + comm_element.user_family + "</h4><p class='comm_text'>" + comm_element.text + "</p><h4 class='answ_pasokh'>پاسخ</h4><p class='answ_class'>" + answer + "</p>";
+                        
                     });
-                    content += "<div data-theme='a' data-form='ui-body-a' class='ui-body ui-body-a ui-corner-all'><p><img src='" + art_element.picpath + "' class='imgHeader_in_pages img-circle' /><div id='art_" + art_element.id + "'><h3>" + art_element.title + "</h3><p>" + art_element.text + "</p></div></p><div data-role='collapsible' data-theme='b' data-content-theme='b' data-iconpos='left' class='comment_coll_wrap'><h4>نظرات شما</h4><p id='comment_form_" + art_element.id + "'><input type='text' placeholder='نام و نام خانوادگی' id='comm_user_name_family_" + art_element.id + "' required/><br><textarea placeholder='متن نظر' id='comm_text_area_" + art_element.id + "' required></textarea><input type='button' value='ارسال نظر' class='send_comm_btn' data-art-id='" + art_element.id + "' data-cat-id='" + art_element.cat_id + "' onclick='var art_id=Number($(this).data(\"art-id\")); var text= $(\"#comm_text_area_\"+art_id).text(); var cat_id = Number($(this).data(\"cat-id\")); var comm_user_name = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[0];var comm_user_family = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[1]; var comm_text = $(\"#comm_text_area_\"+art_id).val(); send2Server(art_id, cat_id, comm_user_name, comm_user_family, comm_text)'/></p><div><div id='new_comment_submited_" + art_element.id + "'></div>" + comments + "</div></div></div>";
+                    content += "<div data-theme='a' data-form='ui-body-a' class='ui-body ui-body-a ui-corner-all'><p><img src='" + art_element.picpath + "' class='imgHeader_in_pages img-circle' /><div class='art_body'><h3>" + art_element.title + "</h3><p>" + htmlDeEntities(art_element.text) + "</p></div></p><div data-role='collapsible' data-theme='b' data-content-theme='b' data-iconpos='left' class='comment_coll_wrap'><h4>نظرات شما</h4><p id='comment_form_" + art_element.id + "'><input type='text' placeholder='نام و نام خانوادگی' id='comm_user_name_family_" + art_element.id + "' required/><br><textarea placeholder='متن نظر' id='comm_text_area_" + art_element.id + "' required></textarea><input type='button' value='ارسال نظر' class='send_comm_btn' data-art-id='" + art_element.id + "' data-cat-id='" + art_element.cat_id + "' onclick='var art_id=Number($(this).data(\"art-id\")); var text= $(\"#comm_text_area_\"+art_id).text(); var cat_id = Number($(this).data(\"cat-id\")); var comm_user_name = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[0];var comm_user_family = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[1]; var comm_text = $(\"#comm_text_area_\"+art_id).val(); send2Server(art_id, cat_id, comm_user_name, comm_user_family, comm_text)'/></p><div class='old_comments_content'><div id='new_comment_submited_" + art_element.id + "'></div>" + comments + "</div></div></div>";
                 }
+				comments="";
             });
             // تولید و چسباندن تک صفحه ی مطلب
-            $("body").append("<div id='page_of_cat_" + cat_element.id + "' data-role='page'><div data-role='header' data-fullscreen='true'><a data-iconpos='notext' data-role='button' data-icon='home' title='صفحه اصلی' href='#mainPage'>صفحه اصلی</a><h1>" + cat_element.name + "</h1><a data-iconpos='notext' href='#panel' data-role='button'data-icon='grid'></a></div><div data-role='content'>" + content + "</div></div>");
+            $("body").append("<div id='page_of_cat_" + cat_element.id + "' data-role='page'><div data-role='header' data-fullscreen='true'><a data-iconpos='notext' data-role='button' data-icon='home' title='صفحه اصلی' href='#mainPage'>صفحه اصلی</a><h1>" + cat_element.name + "</h1><a data-iconpos='notext' href='' data-role='button'data-icon='grid'></a></div><div data-role='content'>" + content + "</div></div>");
         } else { // ساختن صفحه ی لیست عنوان + صفحه ی توضیحات
             $(CAT_OBJECT.Articles).each(function (index, art_element) {
                 if (art_element.cat_id == cat_element.id) {
@@ -123,21 +135,22 @@ function XMLParser(data) {
                                     answer_of_list2 = answ_element.text;
                                 }
                             });
-
+							comments_of_list2 += "<h4 class='comm_user_info'><img src='img/user.png' class='user-img' />" + comm_element.user_name + " " + comm_element.user_family + "</h4><p class='comm_text'>" + comm_element.text + "</p><strong class='answ_title'><img src='img/enter.png' class='enter-img' /><img src='img/admin.png' class='admin-img' />پاسخ: </strong><p class='answ_text'>" + answer_of_list2 + "</p>";
+							answer_of_list2="";
                         }
-                        comments_of_list2 += "<h4 class='comm_user_info'>" + comm_element.user_name + " " + comm_element.user_family + "</h4><p class='comm_text'>" + comm_element.text + "</p><h4 class='answ_pasokh'>پاسخ</h4><p class='answ_class'>" + answer + "</p>";
                     });
 
                     //تولید آیتم های لیست
-                    list2 = "<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='c' class='ui-li-has-thumb'><a href='#page_of_art_" + art_element.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + art_element.picpath + "' class='ui-li-thumb list_img img-circle' /><h3 class='ui-li-heading'>" + art_element.title + "</h3><span class=;ui-icon ui-icon-arrow-r ui-icon-shadow;>&nbsp;</span></a></li>"
+                    list2 += "<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='c' class='ui-li-has-thumb'><a href='#page_of_art_" + art_element.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + art_element.picpath + "' class='ui-li-thumb list_img img-circle' /><h3 class='ui-li-heading'>" + art_element.title + "</h3><span class=;ui-icon ui-icon-arrow-r ui-icon-shadow;>&nbsp;</span></a></li>"
                     // تولید کد صفحه ی توضیح به ازای هر آیتم
-                    page_of_list2 = "<div id='page_of_art_" + art_element.id + "' data-role='page'><div data-role='header' data-fullscreen='true'><a data-iconpos='notext' data-role='button' data-icon='arrow-l' title='صفحه قبلی' href='#page_of_cat_" + cat_element.id + "'>صفحه اصلی</a><h1>" + art_element.title + "</h1><a data-iconpos='notext' href='#panel' data-role='button'data-icon='grid'></a></div><div data-role='content'><div data-theme='a' data-form='ui-body-a' class='ui-body ui-body-a ui-corner-all'><p><img src='" + art_element.picpath + "' class='imgHeader_in_pages' /><p class='singleArtContent'>" + art_element.text + "</p></p></div></div></div>";
+                    page_of_list2 += "<div id='page_of_art_" + art_element.id + "' data-role='page'><div data-role='header' data-fullscreen='true'><a data-iconpos='notext' data-role='button' data-icon='arrow-l' title='صفحه قبلی' href='#page_of_cat_" + cat_element.id + "'>صفحه اصلی</a><h1>" + art_element.title + "</h1><a data-iconpos='notext' href='' data-role='button'data-icon='grid'></a></div><div data-role='content'><div data-theme='a' data-form='ui-body-a' class='ui-body ui-body-a ui-corner-all'><p><img src='" + art_element.picpath + "' class='imgHeader_in_pages' /><p class='singleArtContent'>" + htmlDeEntities(art_element.text) + "</p></p><div data-role='collapsible' data-theme='b' data-content-theme='b' data-iconpos='left' class='comment_coll_wrap'><h4>نظرات شما</h4><p id='comment_form_" + art_element.id + "'><input type='text' placeholder='نام و نام خانوادگی' id='comm_user_name_family_" + art_element.id + "' required/><br><textarea placeholder='متن نظر' id='comm_text_area_" + art_element.id + "' required></textarea><input type='button' value='ارسال نظر' class='send_comm_btn' data-art-id='" + art_element.id + "' data-cat-id='" + art_element.cat_id + "' onclick='var art_id=Number($(this).data(\"art-id\")); var text= $(\"#comm_text_area_\"+art_id).text(); var cat_id = Number($(this).data(\"cat-id\")); var comm_user_name = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[0];var comm_user_family = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[1]; var comm_text = $(\"#comm_text_area_\"+art_id).val(); send2Server(art_id, cat_id, comm_user_name, comm_user_family, comm_text)'/></p><div class='old_comments_content'><div id='new_comment_submited_" + art_element.id + "'></div>" + comments_of_list2 + "</div></div></div></div></div>";
                 }
+				comments_of_list2="";
             });
             // ساخت لیستی که قرار است آیتم ها را درون آن قرار دهیم
             var art_ul = "<ul data-role='listview' data-inset='true'>" + list2 + "</div>";
             // چسباندن کد صفحه لیست به بدنه صفحه
-            $("body").append("<div id='page_of_cat_" + cat_element.id + "' data-role='page'><div data-role='header' data-fullscreen='true'><a data-iconpos='notext' data-role='button' data-icon='home' title='صفحه اصلی' href='#mainPage'>صفحه اصلی</a><h1>" + cat_element.name + "</h1><a data-iconpos='notext' href='#panel' data-role='button'data-icon='grid'></a></div><div data-role='content'>" + art_ul + "</div></div>");
+            $("body").append("<div id='page_of_cat_" + cat_element.id + "' data-role='page'><div data-role='header' data-fullscreen='true'><a data-iconpos='notext' data-role='button' data-icon='home' title='صفحه اصلی' href='#mainPage'>صفحه اصلی</a><h1>" + cat_element.name + "</h1><a data-iconpos='notext' href='' data-role='button'data-icon='grid'></a></div><div data-role='content'>" + art_ul + "</div></div>");
             // چسباندن کد صفحه توضیح به بدنه صفحه
             $("body").append(page_of_list2);
         } //آخر شرط اینکه  مطالب عنوان داشته باشند
@@ -149,13 +162,13 @@ function htmlDeEntities(str) {
     return decoded;
 }
 
-function send2Server(art_id, cat_id, username, user_family, textval) {
-    console.log(art_id + " " + cat_id + " " + username + " " + user_family + " " + textval);
+function send2Server(art_id, cat_id, user_name, user_family, textval) {
+    console.log(art_id + " " + cat_id + " " + user_name + " " + user_family + " " + textval);
     $.ajax({
         url: "http://localhost/RebvarDBM/request_submit_comment.php",
         type: "POST",
         data: {
-            user_name: username,
+            user_name: user_name,
             user_family: user_family,
             user_phone: "",
             text: textval,
