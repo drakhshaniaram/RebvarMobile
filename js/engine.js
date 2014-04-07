@@ -21,7 +21,7 @@ $(document).ready(function () {
 				type:"POST",
 				
 				beforeSend: function(){
-					$("#loading").fadeIn().html("<div><h4><img src='img/loading.gif' />  لطفاً تا دریافت اطلاعات صبر نمایید </h4></div>");
+					$("#loading").fadeIn().html("<div><h4><img src='img/loading.gif' />  لطفاً تا دریافت کامل اطلاعات صبر نمایید... </h4></div>");
 					},
 				complete: function(){
 					$("#loading").fadeOut();
@@ -130,7 +130,6 @@ function XMLParser(data) {
     var page_of_list2 = "";
     $(CAT_OBJECT.Categorys).each(function (index, cat_element) {
         $("#category_list").append("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='c' class='ui-li-has-thumb'><a href='#page_of_cat_" + cat_element.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + cat_element.picpath + "' class='ui-li-thumb list_img' onError=\"this.onerror=null;this.src='/img/no_image.png'\" /><h3 class='ui-li-heading'>" + cat_element.name + "</h3><span class=;ui-icon ui-icon-arrow-r ui-icon-shadow;>&nbsp;</span></a></li>");
-        $("#category_list").listview("refresh");
         if (Number(cat_element.has_title) == 0) { // ساخت تک صفحه بدون لیست عنوان
             $(CAT_OBJECT.Articles).each(function (index, art_element) {
                 if (art_element.cat_id == cat_element.id) {
@@ -184,6 +183,7 @@ function XMLParser(data) {
             $("body").append(page_of_list2);
         } //آخر شرط اینکه  مطالب عنوان داشته باشند
     }); //آخر حلقه ی تولید دسته بندی ها
+	
 }
 
 function htmlDeEntities(str) {
@@ -192,6 +192,7 @@ function htmlDeEntities(str) {
 }
 
 function send2Server(art_id, cat_id, user_name, user_family, textval) {
+	optionalArg = (typeof optionalArg === "undefined") ? "" : optionalArg;
     console.log(art_id + " " + cat_id + " " + user_name + " " + user_family + " " + textval);
     $.ajax({
         url: "http://09359405555.ir/app_manager/request_submit_comment.php",
