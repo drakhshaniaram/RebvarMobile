@@ -5,8 +5,8 @@
     version   = "1.0.0">
 <icon src="img/icon.png" />
 <name>ریبوار موبایل</name>
-<description>ب
-</description>برنامه ای جهت ارتباط آسانتر با مشتریان و خبررسانی از تازه ترین رویدادهای دنیای موبایل
+<description>برنامه ای جهت ارتباط آسانتر با مشتریان و خبررسانی از تازه ترین رویدادهای دنیای موبایل
+</description>
 <author email="drakhshani.aram@gmail.com">
 </author>
 <access origin="*" />
