@@ -1,21 +1,44 @@
 var xml;
+/*$(function() {
+  setTimeout(hideSplash, 2000);
+});
+
+function hideSplash() {
+  $.mobile.changePage("#mainPage", "fade");
+}
+*/
 $(document).ready(function () {
-    $.ajax({
-		url:'http://09359405555.ir/app_manager/request_get_cat_arts.php',
-		type:"POST",
-		
-		beforeSend: function(){
-			$("#loading").fadeIn().html("<div><h4><img src='img/loading.gif' />  لطفاً تا دریافت اطلاعات صبر نمایید </h4></div>");
-			},
-		complete: function(){
-			$("#loading").fadeOut();
-			},	
-		success: function(data){
-			XMLParser(data)
-			},
-		error: function(err){
-			alert("با عرض پوزش، مشکلی در ارتباط با سرور رخ داده است. لطفاً وضعیت اتصال اینترنت خود را چک کنید. یا اینکه مطمئن شوید که VPN روی دستگاهتان نصب نیست.")},
+/*	jQuery.fn.center = function () {
+                    this.css("position", "absolute");
+                    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + $(window).scrollTop()) + "px");
+                    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + "px");
+                    return this;
+                }
+	$("#splash").center()*/
+	function getContentFromServer(){
+			$.ajax({
+				url:'http://09359405555.ir/app_manager/request_get_cat_arts.php',
+				type:"POST",
+				
+				beforeSend: function(){
+					$("#loading").fadeIn().html("<div><h4><img src='img/loading.gif' />  لطفاً تا دریافت اطلاعات صبر نمایید </h4></div>");
+					},
+				complete: function(){
+					$("#loading").fadeOut();
+					},	
+				success: function(data){
+					XMLParser(data)
+					},
+				error: function(err){
+					$.mobile.changePage( "#my_dialog", { role: "dialog" } );
+					},
+			});
+		}
+	$("#btn_reload").click(function(e) {
+		getContentFromServer();
     });
+	getContentFromServer();
+	
 });
 //loading XML file and parsing it to .main div.
 function XMLParser(data) {

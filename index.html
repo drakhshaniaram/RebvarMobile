@@ -5,9 +5,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" href="css/wow-flat-theme-from-adobe-kuler.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/wow-flat-theme-from-adobe-kuler.min.css" />
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons.min.css">
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.2.min.css" />
         <link rel="stylesheet" type="text/css" href="css/css_global.css">
 		
 		<script src="js/jquery-1.10.2.min.js"></script>
@@ -18,7 +18,6 @@
     
     <body>
         <!--Home Page(1)-->
-        
         <div data-role="page" id="mainPage" class="ui-page-theme-e">
             <div data-role="panel" id="panel" data-position="right" data-theme="a" data-display="push">
             
@@ -50,9 +49,25 @@
             </div>
             <div data-role="footer" class="footer">
                 	<h4>تجربه ای نو در غرب کشور</h4>
-
             </div>
+        </div><!--End of main Page-->
+        
+       	<!--*************** My Dialog For Errors ***************-->
+             
+            <div role="dialog" id="my_dialog">
+                <div data-theme="b" data-role="header" role="banner"><a href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-left" data-rel="back">بستن</a>
+                <h1 class="ui-title" role="heading" aria-level="1">خطا</h1>
+                </div>
+        
+                <div class="ui-content" role="main">
+                    <h1 class="pop_header">مشکل در ارتباط با اینترنت</h1>
+                    <p class="pop_content_msg">با عرض پوزش، مشکلی در ارتباط با سرور رخ داده است. لطفاً وضعیت اتصال اینترنت خود را چک کنید. یا اینکه مطمئن شوید که VPN روی دستگاهتان فعال نیست.</p>
+                        <a class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-refresh ui-btn-icon-right" data-rel="back" id="btn_reload">بارگذاری مجدد</a>
+                        <a class="ui-btn ui-shadow ui-corner-all ui-btn-a" data-rel="back">انصراف</a>
+                </div>
         </div>
+        <!--*************** End of My Dialog For Errors ***************-->
+         
         <script src="js/engine.js"></script>      
     </body>
 
