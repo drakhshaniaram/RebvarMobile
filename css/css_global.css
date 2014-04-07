@@ -2,6 +2,10 @@ body {
 	direction: rtl;
 	font-family: tahoma;
 }
+body .ui-li .ui-li-desc {
+ white-space: normal;
+ }
+#loading{color:#FFF;margin:0 auto; width:100%; text-align:center;}
 .ui-listview > .ui-li-static, .ui-listview > .ui-li-divider, .ui-listview > li > a.ui-btn {
 	text-align: center;
 }
@@ -13,7 +17,7 @@ body {
 	z-index: 1000;
 }
 .ui-listview .ui-li-has-thumb > img:first-child, .ui-listview .ui-li-has-thumb > .ui-btn > img:first-child, .ui-listview .ui-li-has-thumb .ui-li-thumb {
-	max-width: 50%;
+	max-width: 40%;
 	max-height: 100%;
 }
 html .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html body .ui-btn.ui-btn-a, html .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html body .ui-btn.ui-btn-a:visited {
@@ -25,9 +29,12 @@ html .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, 
 .ui-content {
 	padding: 0;
 }
-.ui-content h1, .ui-content h2, .ui-content h3, .ui-content h5, .ui-content h6, .ui-content a {
+.ui-content h1, .ui-content h2, .ui-content h3, .ui-content h4, .ui-content h5, .ui-content h6, .ui-content a {
 	padding: 1em;
 }
+ui-body ui-body-a ui-corner-all p{
+	padding:2em;
+	}
 .main_logo {
 	margin: 0 auto;
 }
@@ -56,21 +63,27 @@ comment_coll_wrap {
 .old_comments_content {
 /*display:none;*/
 }
-.answ_text {
-	border-bottom: 1px dotted #CCC;
-	padding-bottom: 1em;
-}
 
 .ui-bar, .ui-body {
 	padding: 0;
 }
+/*متن مطلب*/
+.ui-bar, .ui-body > div{padding:0 1em}
+/*عنوان مطلب*/
+.ui-bar, .ui-body >.singleArtContent{padding:0 2em}
+/*متن نظر کاربر*/
+.old_comments_content .comm_text{padding:0 1em 2em 0;}
+/*عنوان نظر کاربر*/
+.old_comments_content .comm_user_info {}
 .old_comments_content .comm_user_info, .old_comments_content .comm_text {
-	margin: 0;
+	margin: -10px;
 }
+.seprator{border-bottom:1px dashed #CCC;padding-bottom: 1em; width:80%; margin:0 auto}
+
 .old_comments_content .answ_title, .old_comments_content .answ_text {
 	margin: 0;
 }
-.comm_text{margin-bottom:1em !important;}
+
 .user-img, .admin-img {
 	vertical-align: middle;
 	margin-left: 10px;
@@ -80,7 +93,7 @@ comment_coll_wrap {
 }
 .ad {
 	padding: 50px 20px 20px;
-	text-align:center;
+	text-align: center;
 }
 .phone_number {
 	text-align: center;
@@ -89,7 +102,29 @@ comment_coll_wrap {
 .phone_numbers span {
 	font-size: large;
 }
-ui-body ui-body-a ui-corner-all div p{padding:10px;}
-.art_body{
-	
-	padding:10px !important;}
+ui-body ui-body-a ui-corner-all div p {
+	padding: 10px;
+}
+.art_body {
+	padding: 10px !important;
+}
+#myInfo {
+  background: #fff;
+  margin: 0 auto;
+  width: 80%;
+  padding: 0;
+  text-align: center;
+  border: 1px dashed #ccc;
+  text-align: left;
+  font-size:1em;
+}
+#myInfo .title{
+  position: relative;
+  background: #0000ff;
+  color: #fff;
+  float:right;
+  padding: 1em;
+  margin-right: -2px;
+  margin-top: -2px;
+  margin-left: 10px;
+  }

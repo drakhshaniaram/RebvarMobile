@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
     xmlns:gap = "http://phonegap.com/ns/1.0"
-    id        = "com.MediaArt.P-U-K-102"
+    id        = "com.AramMobileApp.RebvarMobile"
     version   = "1.0.0">
-<icon src="images/icon.png" />
-<name>PUK 102</name>
-<description>
-بەرنامەی ناساندنی کاندیدەکانی لیستی یەکێتی نیشتمانی کوردستان بۆ پەرلەمانی 2013
-</description>
-<author href="https://www.symbiansoftgroup.com" email="drakhshani.aram@gmail.com">
+<icon src="img/icon.png" />
+<name>ریبوار موبایل</name>
+<description>ب
+</description>برنامه ای جهت ارتباط آسانتر با مشتریان و خبررسانی از تازه ترین رویدادهای دنیای موبایل
+<author email="drakhshani.aram@gmail.com">
 </author>
 <access origin="*" />
 <icon src="icons/ios/57.png" gap:platform="ios" width="57" height="57" />

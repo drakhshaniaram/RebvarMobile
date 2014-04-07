@@ -1,18 +1,21 @@
 var xml;
 $(document).ready(function () {
-	$.ajax({
-		url: 'http://localhost/RebvarDBM/request_get_cat_arts.php',
+    $.ajax({
+		url:'http://09359405555.ir/app_manager/request_get_cat_arts.php',
 		type:"POST",
+		
+		beforeSend: function(){
+			$("#loading").fadeIn().html("<div><h4><img src='img/loading.gif' />  لطفاً تا دریافت اطلاعات صبر نمایید </h4></div>");
+			},
+		complete: function(){
+			$("#loading").fadeOut();
+			},	
 		success: function(data){
-			XMLParser(data);
+			XMLParser(data)
 			},
 		error: function(err){
-			alert("کاربر گرامی با عرض پوزش اشکالی در سرور رخ داده است، لطفاً بعداً تلاش فرمایید.");
-			}
-		});
-	$("img").error(function () {
-	  console.log("img error");
-	});
+			alert("با عرض پوزش، مشکلی در ارتباط با سرور رخ داده است. لطفاً وضعیت اتصال اینترنت خود را چک کنید. یا اینکه مطمئن شوید که VPN روی دستگاهتان نصب نیست.")},
+    });
 });
 //loading XML file and parsing it to .main div.
 function XMLParser(data) {
@@ -98,7 +101,7 @@ function XMLParser(data) {
 	var answer_of_list2 = "";
     var page_of_list2 = "";
     $(CAT_OBJECT.Categorys).each(function (index, cat_element) {
-        $("#category_list").append("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='c' class='ui-li-has-thumb'><a href='#page_of_cat_" + cat_element.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + cat_element.picpath + "' class='ui-li-thumb list_img' /><h3 class='ui-li-heading'>" + cat_element.name + "</h3><span class=;ui-icon ui-icon-arrow-r ui-icon-shadow;>&nbsp;</span></a></li>");
+        $("#category_list").append("<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='c' class='ui-li-has-thumb'><a href='#page_of_cat_" + cat_element.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + cat_element.picpath + "' class='ui-li-thumb list_img' onError=\"this.onerror=null;this.src='/img/no_image.png'\" /><h3 class='ui-li-heading'>" + cat_element.name + "</h3><span class=;ui-icon ui-icon-arrow-r ui-icon-shadow;>&nbsp;</span></a></li>");
         $("#category_list").listview("refresh");
         if (Number(cat_element.has_title) == 0) { // ساخت تک صفحه بدون لیست عنوان
             $(CAT_OBJECT.Articles).each(function (index, art_element) {
@@ -113,12 +116,11 @@ function XMLParser(data) {
                                     answer = answ_element.text;
                                 }
                             });
-							comments += "<strong class='comm_user_info'><img src='img/user.png' class='user-img' />" + comm_element.user_name + " " + comm_element.user_family + "</strong><p class='comm_text'>" + comm_element.text + "</p><strong class='answ_title'><img src='img/enter.png' class='enter-img' /><img src='img/admin.png' class='admin-img' />پاسخ: </strong><p class='answ_text'>" + answer + "</p>";
-							answer = "";
+							comments += "<strong class='comm_user_info'><img src='img/user.png' class='user-img' onError=\"this.onerror=null;this.src='/img/no_image.png';\" />" + comm_element.user_name + " " + comm_element.user_family + "</strong><p class='comm_text'>" + comm_element.text + "</p><strong class='answ_title'><img src='img/enter.png' class='enter-img' /><img src='img/admin.png' class='admin-img' />پاسخ: </strong><span class='answ_text'>" + answer + "</span><p class='seprator'></p>";
                         }
                         
                     });
-                    content += "<div data-theme='a' data-form='ui-body-a' class='ui-body ui-body-a ui-corner-all'><p><img src='" + art_element.picpath + "' class='imgHeader_in_pages img-circle' /><div class='art_body'><h3>" + art_element.title + "</h3><p>" + htmlDeEntities(art_element.text) + "</p></div></p><div data-role='collapsible' data-theme='b' data-content-theme='b' data-iconpos='left' class='comment_coll_wrap'><h4>نظرات شما</h4><p id='comment_form_" + art_element.id + "'><input type='text' placeholder='نام و نام خانوادگی' id='comm_user_name_family_" + art_element.id + "' required/><br><textarea placeholder='متن نظر' id='comm_text_area_" + art_element.id + "' required></textarea><input type='button' value='ارسال نظر' class='send_comm_btn' data-art-id='" + art_element.id + "' data-cat-id='" + art_element.cat_id + "' onclick='var art_id=Number($(this).data(\"art-id\")); var text= $(\"#comm_text_area_\"+art_id).text(); var cat_id = Number($(this).data(\"cat-id\")); var comm_user_name = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[0];var comm_user_family = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[1]; var comm_text = $(\"#comm_text_area_\"+art_id).val(); send2Server(art_id, cat_id, comm_user_name, comm_user_family, comm_text)'/></p><div class='old_comments_content'><div id='new_comment_submited_" + art_element.id + "'></div>" + comments + "</div></div></div>";
+                    content += "<div data-theme='a' data-form='ui-body-a' class='ui-body ui-body-a ui-corner-all'><p><img src='" + art_element.picpath + "' class='imgHeader_in_pages img-circle' onError=\"this.onerror=null;this.src='/img/no_image.png';\" /><div class='art_body'><h3>" + art_element.title + "</h3><p>" + htmlDeEntities(art_element.text) + "</p></div></p><div data-role='collapsible' data-theme='b' data-content-theme='b' data-iconpos='left' class='comment_coll_wrap'><h4>نظرات شما</h4><p id='comment_form_" + art_element.id + "'><input type='text' placeholder='نام و نام خانوادگی' id='comm_user_name_family_" + art_element.id + "' required/><br><textarea placeholder='متن نظر' id='comm_text_area_" + art_element.id + "' required></textarea><input type='button' value='ارسال نظر' class='send_comm_btn' data-art-id='" + art_element.id + "' data-cat-id='" + art_element.cat_id + "' onclick='var art_id=Number($(this).data(\"art-id\")); var text= $(\"#comm_text_area_\"+art_id).text(); var cat_id = Number($(this).data(\"cat-id\")); var comm_user_name = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[0];var comm_user_family = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[1]; var comm_text = $(\"#comm_text_area_\"+art_id).val(); send2Server(art_id, cat_id, comm_user_name, comm_user_family, comm_text)'/></p><div class='old_comments_content'><div id='new_comment_submited_" + art_element.id + "'></div>" + comments + "</div></div></div>";
                 }
 				comments="";
             });
@@ -135,15 +137,14 @@ function XMLParser(data) {
                                     answer_of_list2 = answ_element.text;
                                 }
                             });
-							comments_of_list2 += "<h4 class='comm_user_info'><img src='img/user.png' class='user-img' />" + comm_element.user_name + " " + comm_element.user_family + "</h4><p class='comm_text'>" + comm_element.text + "</p><strong class='answ_title'><img src='img/enter.png' class='enter-img' /><img src='img/admin.png' class='admin-img' />پاسخ: </strong><p class='answ_text'>" + answer_of_list2 + "</p>";
-							answer_of_list2="";
+							comments_of_list2 += "<h4 class='comm_user_info'><img src='img/user.png' class='user-img' onError=\"this.onerror=null;this.src='/img/no_image.png';\" />" + comm_element.user_name + " " + comm_element.user_family + "</h4><p class='comm_text'>" + comm_element.text + "</p><strong class='answ_title'><img src='img/enter.png' class='enter-img' /><img src='img/admin.png' class='admin-img' />پاسخ: </strong><span class='answ_text'>" + answer_of_list2 + "</span><p class='seprator'></p>";
                         }
                     });
 
                     //تولید آیتم های لیست
-                    list2 += "<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='c' class='ui-li-has-thumb'><a href='#page_of_art_" + art_element.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + art_element.picpath + "' class='ui-li-thumb list_img img-circle' /><h3 class='ui-li-heading'>" + art_element.title + "</h3><span class=;ui-icon ui-icon-arrow-r ui-icon-shadow;>&nbsp;</span></a></li>"
+                    list2 += "<li data-corners='false' data-shadow='false' data-iconshadow='true' data-wrapperels='div' data-icon='arrow-r' data-iconpos='right' data-theme='c' class='ui-li-has-thumb'><a href='#page_of_art_" + art_element.id + "' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><img src='" + art_element.picpath + "' class='ui-li-thumb list_img img-circle' onError=\"this.onerror=null;this.src='/img/no_image.png';\" /><h3 class='ui-li-heading'>" + art_element.title + "</h3><span class=;ui-icon ui-icon-arrow-r ui-icon-shadow;>&nbsp;</span></a></li>"
                     // تولید کد صفحه ی توضیح به ازای هر آیتم
-                    page_of_list2 += "<div id='page_of_art_" + art_element.id + "' data-role='page'><div data-role='header' data-fullscreen='true'><a data-iconpos='notext' data-role='button' data-icon='arrow-l' title='صفحه قبلی' href='#page_of_cat_" + cat_element.id + "'>صفحه اصلی</a><h1>" + art_element.title + "</h1><a data-iconpos='notext' href='' data-role='button'data-icon='grid'></a></div><div data-role='content'><div data-theme='a' data-form='ui-body-a' class='ui-body ui-body-a ui-corner-all'><p><img src='" + art_element.picpath + "' class='imgHeader_in_pages' /><p class='singleArtContent'>" + htmlDeEntities(art_element.text) + "</p></p><div data-role='collapsible' data-theme='b' data-content-theme='b' data-iconpos='left' class='comment_coll_wrap'><h4>نظرات شما</h4><p id='comment_form_" + art_element.id + "'><input type='text' placeholder='نام و نام خانوادگی' id='comm_user_name_family_" + art_element.id + "' required/><br><textarea placeholder='متن نظر' id='comm_text_area_" + art_element.id + "' required></textarea><input type='button' value='ارسال نظر' class='send_comm_btn' data-art-id='" + art_element.id + "' data-cat-id='" + art_element.cat_id + "' onclick='var art_id=Number($(this).data(\"art-id\")); var text= $(\"#comm_text_area_\"+art_id).text(); var cat_id = Number($(this).data(\"cat-id\")); var comm_user_name = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[0];var comm_user_family = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[1]; var comm_text = $(\"#comm_text_area_\"+art_id).val(); send2Server(art_id, cat_id, comm_user_name, comm_user_family, comm_text)'/></p><div class='old_comments_content'><div id='new_comment_submited_" + art_element.id + "'></div>" + comments_of_list2 + "</div></div></div></div></div>";
+                    page_of_list2 += "<div id='page_of_art_" + art_element.id + "' data-role='page'><div data-role='header' data-fullscreen='true'><a data-iconpos='notext' data-role='button' data-icon='arrow-l' title='صفحه قبلی' href='#page_of_cat_" + cat_element.id + "'>صفحه اصلی</a><h1>" + art_element.title + "</h1><a data-iconpos='notext' href='' data-role='button'data-icon='grid'></a></div><div data-role='content'><div data-theme='a' data-form='ui-body-a' class='ui-body ui-body-a ui-corner-all'><p><img src='" + art_element.picpath + "' class='imgHeader_in_pages' onError=\"this.onerror=null;this.src='/img/no_image.png';\" /><p class='singleArtContent'>" + htmlDeEntities(art_element.text) + "</p></p><div data-role='collapsible' data-theme='b' data-content-theme='b' data-iconpos='left' class='comment_coll_wrap'><h4>نظرات شما</h4><p id='comment_form_" + art_element.id + "'><input type='text' placeholder='نام و نام خانوادگی' id='comm_user_name_family_" + art_element.id + "' required/><br><textarea placeholder='متن نظر' id='comm_text_area_" + art_element.id + "' required></textarea><input type='button' value='ارسال نظر' class='send_comm_btn' data-art-id='" + art_element.id + "' data-cat-id='" + art_element.cat_id + "' onclick='var art_id=Number($(this).data(\"art-id\")); var text= $(\"#comm_text_area_\"+art_id).text(); var cat_id = Number($(this).data(\"cat-id\")); var comm_user_name = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[0];var comm_user_family = $(\"#comm_user_name_family_\"+art_id).val().split(\" \")[1]; var comm_text = $(\"#comm_text_area_\"+art_id).val(); send2Server(art_id, cat_id, comm_user_name, comm_user_family, comm_text)'/></p><div class='old_comments_content'><div id='new_comment_submited_" + art_element.id + "'></div>" + comments_of_list2 + "</div></div></div></div></div>";
                 }
 				comments_of_list2="";
             });
@@ -165,7 +166,7 @@ function htmlDeEntities(str) {
 function send2Server(art_id, cat_id, user_name, user_family, textval) {
     console.log(art_id + " " + cat_id + " " + user_name + " " + user_family + " " + textval);
     $.ajax({
-        url: "http://localhost/RebvarDBM/request_submit_comment.php",
+        url: "http://09359405555.ir/app_manager/request_submit_comment.php",
         type: "POST",
         data: {
             user_name: user_name,
