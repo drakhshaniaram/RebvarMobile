@@ -18,31 +18,7 @@
     <body>
         <div data-role="page" id="splash"> 
           <div class="splash">
-            <img src="img/splash.png" id="splashImg" alt="عکس مقدمه - موبایل ریبوار" />
-        
-        <script type='text/javascript'>//<![CDATA[ 
-                    $(window).load(function(){
-                    $(function() {
-                        setTimeout(hideSplash, 3000);
-                                });	
-        
-                    function hideSplash() {
-                    $.mobile.changePage("#mainPage", "flip");
-                    $(".splash").remove();
-                    }
-        
-                    jQuery.fn.center = function () {
-            this.css("position","absolute");
-            this.css("top", Math.max(0, (($(window).height() - this.outerHeight()) / 2) +
-                                                        $(window).scrollTop()) + "px");
-            this.css("left", Math.max(0, (($(window).width() - this.outerWidth()) / 2) +
-                                                        $(window).scrollLeft()) + "px");
-            return this;
-        }
-        $("#splashImg").center();
-                    });//]]>  
-                </script>
-        
+            <img src="img/splash.png" id="splashImg" alt="عکس مقدمه - موبایل ریبوار" />      
           </div>
          </div>
         <!--Home Page(1)-->
