@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="css/wow-flat-theme-from-adobe-kuler.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons.min.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.2.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/css_global.css">
+		
+		<script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+		<script src="js/fastclick.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+        <script src="js/jquery.mobile-1.4.2.min.js" type="text/javascript"></script>
+    </head>
+    
+    <body>
+        
+        <!--Home Page(1)-->
+        <div data-role="page" id="mainPage" class="ui-page-theme-e">
+            <div data-role="panel" id="panel" data-position="right" data-theme="a" data-display="push">
+            
+                <p id="ad">
+                	<img src="img/logo-s-2.png" />
+                <h4>خرید ، فروش، لوازم جانبی</h4>
+                    <div class="phone_numbers">
+                    
+                    <h4>جهت درخواست سفارشات طراحی و برنامه نویسی موبایل با شماره تلفن های زیر تماس حاصل فرمائید:</h4>
+                    <span>آرام درخشانی: 09142050459</span><br/>
+                    <span>شهاب محمدی: 09149592212</span><br/>
+                    <span>آدرس: بوکان، خیابان انقلاب، روبروی مخابرات، جنب پاساژ دادخواه</span><br/>
+                    <span>تلفن: 0482-6224449</span><br/>
+                    </div>
+                    </p>
+                    
+            </div>
+            <div data-role="header" data-fullscreen="true">
+                <a data-iconpos="notext" data-role="button" data-icon="home" title="صفحه اصلی" href="#mainPage">صفحه اصلی</a>
+                 <h1>موبایل ریبوار بوکان</h1>
+					
+                <a data-iconpos="notext" href="#panel" data-role="button" data-icon="grid"></a>
+            </div>
+            <div data-role="content" id="main_content">
+            		<div id="loading"></div>
+                <ul id="category_list" data-role="listview" data-inset="true">
+                    <li data-role="list-divider" data-theme="a">لیست موضوعات</li>
+                </ul>
+            </div>
+            <div data-role="footer" class="footer">
+                	<h4>تجربه ای نو در غرب کشور</h4>
+            </div>
+        </div><!--End of main Page-->
+        
+       	<!--*************** My Dialog For Errors ***************-->
+             
+            <div role="dialog" id="my_dialog" style="display: none">
+                <div data-theme="b" data-role="header" role="banner"><a href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-left" data-rel="back">بستن</a>
+                <h1 class="ui-title" role="heading" aria-level="1">خطا</h1>
+                </div>
+        
+                <div class="ui-content" role="main">
+                    <h1 class="pop_header">مشکل در ارتباط با اینترنت</h1>
+                    <p class="pop_content_msg">با عرض پوزش، مشکلی در ارتباط با سرور رخ داده است. لطفاً وضعیت اتصال اینترنت خود را چک کنید. یا اینکه مطمئن شوید که VPN روی دستگاهتان فعال نیست.</p>
+                        <a class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-refresh ui-btn-icon-right" data-rel="back" id="btn_reload">بارگذاری مجدد</a>
+                        <a class="ui-btn ui-shadow ui-corner-all ui-btn-a" data-rel="back" id="btn_cancel">انصراف</a>
+                </div>
+        </div>
+        <!--*************** End of My Dialog For Errors ***************-->
+         
+        <script src="js/engine.js"></script>      
+    </body>
+
+</html>
+          
