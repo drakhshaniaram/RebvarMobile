@@ -1,37 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>موبایل ریبوار بوکان</title>
-        <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-        <script src="js/jquery.mobile-1.4.2.min.js" type="text/javascript"></script>
-		<script>
-			//__________________________________________ Show the Splash Screen___________________________________________
-				//<![CDATA[ 
-				$(window).load(function () {
-				   $(function () {
-					  setTimeout(hideSplash, 3000);
-				   });
-				
-				   function hideSplash() {
-					  window.location = "main.html";
-
-				   }
-				
-				   $.fn.center = function () {
-					  this.css("position", "absolute");
-					  this.css("top", Math.max(0, (($(window).height() - this.outerHeight()) / 2) + $(window).scrollTop()) + "px");
-					  this.css("left", Math.max(0, (($(window).width() - this.outerWidth()) / 2) + $(window).scrollLeft()) + "px");
-					  return this;
-				   };
-				   $("#splashImg").center();
-				}); //]]> 
-		</script>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <style type="text/css">
+        	body{
+				background-color:#354b5e}
+        </style>
+		<script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/jquery.mobile-1.4.2.min.js"></script>
+		<script type="text/javascript">
+        	//__________________________________________ Show the Splash Screen___________________________________________
+			//<![CDATA[ 
+			$(window).load(function () {
+			   $(function () {
+				  setTimeout(hideSplash, 4000);
+			   });
+			
+			   function hideSplash() {
+				  window.location = "mian.html";
+			   }
+			   $.fn.center = function () {
+				  this.css("position", "absolute");
+				  this.css("top", Math.max(0, (($(window).height() - this.outerHeight()) / 2) + $(window).scrollTop()) + "px");
+				  this.css("left", Math.max(0, (($(window).width() - this.outerWidth()) / 2) + $(window).scrollLeft()) + "px");
+				  return this;
+			   };
+			   $("#splashImg").center();
+			}); //]]> 
+        </script>
     </head>
-	<body>
-    	<div data-role="page" id="splash"> 
+    
+    <body>
+        <div data-role="page" id="splash"> 
           <div class="splash">
             <img src="img/splash.png" id="splashImg" alt="عکس مقدمه - موبایل ریبوار" />      
           </div>
-         </div>		
-	</body>
+         </div>
+             
+    </body>
+
 </html>
+          
