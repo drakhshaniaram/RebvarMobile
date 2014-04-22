@@ -272,7 +272,9 @@ function XMLParser(data) {
       } //آخر شرط اینکه  مطالب عنوان داشته باشند
 	  // برای هر دسته بندی باید محتوای تولید شده برای دسته بندی قبلی خالی بشود و با مطالب دسته بندی جدید پر شود
 	  content="";
-	  comments_of_list2 = "";
+	  page_of_list2 = "";
+	  list2 = "";
+	  
    }); //آخر حلقه ی تولید دسته بندی ها
 
 }
@@ -295,7 +297,24 @@ function send2Server(art_id, cat_id, user_name, user_family, textval) {
       },
       success: function (resp) {
          $("#comment_form_" + art_id).slideUp();
-         if (Number(resp) === 1) $("#new_comment_submited_" + art_id).html("<div class='alert alert-success'><span class='icon-ok icon-white' style='margin-right:5px;'></span>با تشکر، نظر شما ثبت شده و در اسرع وقت جواب داده خواهد شد.</div>");
+         if (Number(resp) === 1){ 
+		 
+		 		function alertDismissed() {
+					// do something
+				}
+			
+				// Show a custom alert
+				showAlert();
+				function showAlert() {
+					navigator.notification.alert(
+						'با تشکر پیغام شما دریافت شد!',  // message
+						alertDismissed,         // callback
+						'ثبت پیام',            // title
+						'بستن'                  // buttonName
+					);
+				}
+
+		 }
          if (Number(resp) === 0) $("#new_comment_submited_" + art_id).html("<div class='alert alert-important>متاسفانه در ثبت نظر شما، مشکلی پیش آمده است، لطفاً با مدیر تماس یگیرید.</div>");
          if (Number(resp) === 2) $("#new_comment_submited_" + art_id).html("<div class='alert alert-important>متاسفانه در ثبت اطلاعات کاربری شما مشکلی پیش آمده است. لطفاً مجدداً تلاش فرمایید.</div>");
       },

@@ -13,22 +13,31 @@
 		<script src="js/jq_1_10_2_min.js" type="text/javascript"></script>
         <script src="js/jqm_1_4_2_min.js" type="text/javascript"></script>
 		<script src="js/fastclick.js" type="text/javascript"></script>
+        <script src="phonegap.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			$(function() {
 				FastClick.attach(document.body);
 			});
+			function onLoad(){
+				  document.addEventListener("deviceready",onDeviceReady, true);
+			 }
+		
+			 function onDeviceReady(){
+				//navigator.notification.alert("PhoneGap is working!!");
+				navigator.splashscreen.hide();
+			 }
 		</script>
         
     </head>
     
-    <body>
+    <body onload="onLoad()">
         
         <!--Home Page(1)-->
         <div data-role="page" id="mainPage" class="ui-page-theme-e">
             <div data-role="panel" id="panel" data-position="right" data-theme="a" data-display="push">
             
                 <p id="ad">
-                	<img src="img/logo-s-2.png" />
+                	<img src="img/icon.png" />
                 <h4>خرید ، فروش، لوازم جانبی</h4>
                     <div class="phone_numbers">
                     
@@ -42,9 +51,7 @@
                     
             </div>
             <div data-role="header" data-fullscreen="true">
-                <a data-iconpos="notext" data-role="button" data-icon="home" title="صفحه اصلی" href="#mainPage">صفحه اصلی</a>
-                 <h1>موبایل ریبوار بوکان</h1>
-					
+                 <h1>بوکان توئیت</h1>
                 <a data-iconpos="notext" href="#panel" data-role="button" data-icon="grid"></a>
             </div>
             <div data-role="content" id="main_content">
