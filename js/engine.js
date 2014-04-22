@@ -304,7 +304,11 @@ function send2Server(art_id, cat_id, user_name, user_family, textval) {
 				}
 			
 				// Show a custom alert
+<<<<<<< HEAD
 				showAlert();
+=======
+				//
+>>>>>>> 2bfe38b6fc58aaa5ad419643b33ac4d65e08e720
 				function showAlert() {
 					navigator.notification.alert(
 						'با تشکر پیغام شما دریافت شد!',  // message

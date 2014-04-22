@@ -10,15 +10,25 @@
 <author email="drakhshani.aram@gmail.com">
 </author>
 <access origin="*" />
+<<<<<<< HEAD
 <!--	<preference name="SplashScreenDelay" value="5000" />
 -->	<preference name="AutoHideSplashScreen" value="false" />
+=======
+>>>>>>> 2bfe38b6fc58aaa5ad419643b33ac4d65e08e720
 	<icon src="res/drawable-ldpi/icon.png"  gap:platform="android" gap:density="ldpi"  />
     <icon src="res/drawable-mdpi/icon.png"  gap:platform="android" gap:density="mdpi"  />
     <icon src="res/drawable-hdpi/icon.png"  gap:platform="android" gap:density="hdpi"  />
     <icon src="res/drawable-xhdpi/icon.png" gap:platform="android" gap:density="xhdpi" />
+<<<<<<< HEAD
     <gap:splash src="res/splash/drawable-ldpi/icon.png"  gap:platform="android" gap:density="ldpi"  />
     <gap:splash src="res/splash/drawable-mdpi/icon.png"  gap:platform="android" gap:density="mdpi"  />
     <gap:splash src="res/splash/drawable-hdpi/icon.png"  gap:platform="android" gap:density="hdpi"  />
     <gap:splash src="res/splash/drawable-xhdpi/icon.png" gap:platform="android" gap:density="xhdpi" />
+=======
+    <gap:splash src="res/drawable-ldpi/icon.png"  gap:platform="android" gap:density="ldpi"  />
+    <gap:splash src="res/drawable-mdpi/icon.png"  gap:platform="android" gap:density="mdpi"  />
+    <gap:splash src="res/drawable-hdpi/icon.png"  gap:platform="android" gap:density="hdpi"  />
+    <gap:splash src="res/drawable-xhdpi/icon.png" gap:platform="android" gap:density="xhdpi" />
+>>>>>>> 2bfe38b6fc58aaa5ad419643b33ac4d65e08e720
 <plugin name="DeviceInformation" value="com.vliesaputra.cordova.plugins.DeviceInformation"/>
 </widget>
