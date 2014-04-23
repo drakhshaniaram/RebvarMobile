@@ -362,6 +362,8 @@ function send2Server(art_id, cat_id, user_name, user_family, textval) {
 					}
 //__________________________________________ Controller function  __________________________________________________
 $(document).ready(function () {
+	var db = window.openDatabase("boukanTweet", "1.0", "Boukan Tweet", 200000);
+	db.transaction(queryDB, errorCB, querySuccess); 
    function getContentFromServer() {
       $.ajax({
          url: server_url+'/request_get_cat_arts.php',
@@ -375,8 +377,6 @@ $(document).ready(function () {
          },
          success: function (data) {
             XMLParser(data);
-			var db = window.openDatabase("boukanTweet", "1.0", "Boukan Tweet", 200000);
-			db.transaction(queryDB, errorCB, querySuccess); 
          },
          error: function (err) {
             $("#my_dialog").css("display", "block");
