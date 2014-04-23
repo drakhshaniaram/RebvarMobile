@@ -147,7 +147,7 @@
 					//
 					function signup_user() {
 						var db = window.openDatabase("boukanTweet", "1.0", "Boukan Tweet", 200000);
-						db.transaction(populateDB, errorCB, successCB);
+						db.transaction(populate_userDB, errorCB, successCB);
 					}
 		
 				</script>      
