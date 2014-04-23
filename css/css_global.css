@@ -29,9 +29,6 @@ html .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, 
 .ui-content {
 	padding: 0;
 }
-.ui-content h1, .ui-content h2, .ui-content h3, .ui-content h4, .ui-content h5, .ui-content h6, .ui-content a {
-	padding: 1em;
-}
 ui-body ui-body-a ui-corner-all p{
 	padding:2em;
 	}
@@ -60,15 +57,18 @@ comment_coll_wrap {
 .ui-collapsible-themed-content .ui-collapsible-content {
 	border: none
 }
+/*راست چین کردن نظرات*/
 .old_comments_content {
 /*display:none;*/
+text-align:right
 }
 
 .ui-bar, .ui-body {
 	padding: 0;
 }
+/*فاصله ی دکمه ی نظرات شما با حاشیه ها*/
 /*متن مطلب*/
-.ui-bar, .ui-body > div{padding:0 1em}
+.ui-bar, .ui-body > div{padding:0.5em 0.5em}
 /*عنوان مطلب*/
 .ui-bar, .ui-body >.singleArtContent{padding:0 2em}
 /*متن نظر کاربر*/
@@ -107,7 +107,7 @@ ui-body ui-body-a ui-corner-all div p {
 	padding: 10px;
 }
 .art_body {
-	padding: 10px !important;
+	padding: 0 10px !important;
 }
 #myInfo {
   background: #fff;
@@ -136,9 +136,9 @@ ui-body ui-body-a ui-corner-all div p {
 .ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a{
 	text-align: center
 	}
-.ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a{
-	
-	margin:0 4em}
+#signup_dialog .ui-body-a{
+	margin:0 4em
+	}
 #signup_dialog a.ui-btn-icon-notext{
   display: none;
 }
