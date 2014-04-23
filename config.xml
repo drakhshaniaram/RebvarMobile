@@ -15,7 +15,6 @@
     <icon src="res/splash/drawable/icon.png"  gap:platform="android" gap:density="mdpi"  />
     <icon src="res/splash/drawable/icon.png"  gap:platform="android" gap:density="hdpi"  />
     <icon src="res/splash/drawable/icon.png" gap:platform="android" gap:density="xhdpi" />
-<<<<<<< HEAD
     <gap:splash src="res/splash/drawable-ldpi/icon.png"  gap:platform="android" gap:density="ldpi"  />
     <gap:splash src="res/splash/drawable-mdpi/icon.png"  gap:platform="android" gap:density="mdpi"  />
     <gap:splash src="res/splash/drawable-hdpi/icon.png"  gap:platform="android" gap:density="hdpi"  />

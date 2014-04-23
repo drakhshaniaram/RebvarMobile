@@ -37,23 +37,24 @@
         <div data-role="page" id="mainPage" class="ui-page-theme-e">
             <div data-role="panel" id="panel" data-position="right" data-theme="a" data-display="push">
             
-                <p id="ad">
-                	<img src="img/icon.png" />
-                <h4>خرید ، فروش، لوازم جانبی</h4>
-                    <div class="phone_numbers">
+                <div id="ad">
+                	<img src="img/icon.png" style="width:30%; height:30%" />
+                    <p id="ad_text">
+                    <h5>نرم افزار Boukan Tweet </h5>
                     
-                    <h4>جهت درخواست سفارشات طراحی و برنامه نویسی موبایل با شماره تلفن های زیر تماس حاصل فرمائید:</h4>
-                    <span>آرام درخشانی: 09142050459</span><br/>
-                    <span>شهاب محمدی: 09149592212</span><br/>
-                    <span>آدرس: بوکان، خیابان انقلاب، روبروی مخابرات، جنب پاساژ دادخواه</span><br/>
-                    <span>تلفن: 0482-6224449</span><br/>
-                    </div>
-                    </p>
+                     با موضوعات مختلف بصورت آنلاین فعالیت دارد. فعالیت این نرم افزار در جهت خبررسانی ،سرگرمی و تبلیغات است و
+ <strong>در هیچ یک از زمینه های سیاسی ،مذهبی فعالیت نکرده و مربوط به هیچ سازمان یا نهاد خاصی  نمی باشد.</strong><br>
+
+<img src="img/feedback.png" alt="feedBack" />شما میتوانید  انتقادات و پیشنهادات خود از طریق فرم زیر با ما در میان بگذارید:
+					<textarea id="feedback_text"></textarea>
+                    <input type="button" value="ارسال" id="feedback_send"/>
+                	</p>
+                </div>
                     
             </div>
-            <div data-role="header" data-fullscreen="true">
+            <div data-role="header" data-fullscreen="true" data-position="fixed" data-native-menu="true">
                  <h1>بوکان توئیت</h1>
-                <a data-iconpos="notext" href="#panel" data-role="button" data-icon="grid"></a>
+                <a data-iconpos="notext" href="#panel" data-role="button" data-icon="grid" data-iconpos="right"></a>
             </div>
             <div data-role="content" id="main_content">
             		<div id="loading"></div>
@@ -61,7 +62,7 @@
                     <li data-role="list-divider" data-theme="a">لیست موضوعات</li>
                 </ul>
             </div>
-            <div data-role="footer" class="footer">
+            <div data-role="footer" class="footer" data-position="fixed">
                 	<h4>تجربه ای نو در غرب کشور</h4>
             </div>
         </div><!--End of main Page-->
@@ -81,8 +82,75 @@
                 </div>
         </div>
         <!--*************** End of My Dialog For Errors ***************-->
+        <!--*************** SignUp Dialog ***************-->
+             
+            <div role="dialog" id="signup_dialog" style="display: none">
+                <div data-theme="b" data-role="header" role="banner">
+                <h1 class="ui-title" role="heading" aria-level="1">دریافت اطلاعات</h1>
+                </div>
+        
+                <div class="ui-content" role="main">
+                
+                    <h4 class="pop_header">لطفاً جهت ادامه کار برنامه و برای راحتی ارسال نظرات و دیدن مطالب، فرم زیر را تمکیل و ثبت نمایید:</h4>
+                    <p class="pop_content_msg">
+                    <input type='text' placeholder='نام' id='signup_name' required/><br>
+                    <input type='text' placeholder='نام خانوادگی' id='signup_family' required/><br>
+                    <input type='text' placeholder='شماره موبایل' id='signup_mobile' required/><br>
+                    <input type='text' placeholder='ایمیل' id='signup_email' required/><br>
+                    <h5 style="color:orange" id="signup_msg"></h5>
+                    </p>
+                    <a class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-action ui-btn-icon-right" data-rel="back" style="margin:0 15px 15px 15px;" id="signup_save">ثبت</a>
+                </div>
+        </div>
+        <!--*************** End of My Dialog For Errors ***************-->
          
-        <script src="js/engine.js"></script>      
+        <script src="js/engine.js"></script>
+        <script type="text/javascript">
+			var user_name,user_family, user_mobile, user_email;
+        	$("#signup_save").click(function(e) {
+					 user_name = $("#signup_name").val();
+					 user_family = $("#signup_family").val();
+					 user_mobile = $("#signup_mobile").val();
+					 user_email = $("#signup_email").val();
+                if(user_name == "" || user_family == "" || user_mobile == "" || user_email == ""){
+					e.preventDefault();
+					$("#signup_msg").text("لطفاً اطلاعات بالا را بطور کامل وارد نمایید");
+					}else{
+						signup_user();
+						}
+            });//end click event
+			
+			
+			
+					// Populate the database 
+					//
+					function populate_userDB(tx) {
+						tx.executeSql('DROP TABLE IF EXISTS user');
+						tx.executeSql('CREATE TABLE IF NOT EXISTS user (id unique, name, family, phone, email)');
+						tx.executeSql('INSERT INTO user (id, name, family, phone, email) VALUES (1, "'+user_name+'", "'+user_family+'", "'+user_mobile+'", "'+user_email+'")');
+					}
+				
+					// Transaction error callback
+					//
+					function errorCB(err) {
+						$("#signup_msg").text("در ثبت اطلاعات خطایی رخ داده است، لطفاً اطلاعات بالا را بطور کامل وارد نمایید.");
+						console.log("Error processing SQL: "+err.code);
+					}
+				
+					// Transaction success callback
+					//
+					function successCB() {
+						$("#signup_dialog").css({"display":"none", "z-index":"-10000"});
+					}
+				
+					// PhoneGap is ready
+					//
+					function signup_user() {
+						var db = window.openDatabase("boukanTweet", "1.0", "Boukan Tweet", 200000);
+						db.transaction(populateDB, errorCB, successCB);
+					}
+		
+				</script>      
     </body>
 
 </html>

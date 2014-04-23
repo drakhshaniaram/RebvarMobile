@@ -94,6 +94,7 @@ comment_coll_wrap {
 .ad {
 	padding: 50px 20px 20px;
 	text-align: center;
+	
 }
 .phone_number {
 	text-align: center;
@@ -129,3 +130,18 @@ ui-body ui-body-a ui-corner-all div p {
   margin-left: 10px;
   }
 #my_dialog p{padding:1em}
+#main_content{
+	margin-top:2em;
+	}
+.ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a{
+	text-align: center
+	}
+.ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a{
+	
+	margin:0 4em}
+#signup_dialog a.ui-btn-icon-notext{
+  display: none;
+}
+input[type='text'], textarea{
+	text-align:right;
+}
