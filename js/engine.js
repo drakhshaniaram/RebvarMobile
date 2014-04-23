@@ -339,7 +339,7 @@ function send2Server(art_id, cat_id, user_name, user_family, textval) {
 							for (var i=0; i<len; i++){
 								//console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
 								user_name = results.rows.item(i).name;
-								if(user_name.length < 2){
+								if(user_name.length < 2 || user_name == null || typeof user_name == "undefined"){
 										$("#signup_dialog").css("display", "block");
 										$.mobile.changePage("#signup_dialog", {
 										   role: "dialog"
@@ -355,7 +355,7 @@ function send2Server(art_id, cat_id, user_name, user_family, textval) {
 						$("#signup_dialog").css("display", "block");
 										$.mobile.changePage("#signup_dialog", {
 										   role: "dialog"
-										});
+						});
 						$("#signup_msg").text("در بازخوانی اطلاعات خطایی رخ داده است، لطفاً برنامه را بسته و مجدداً اجرا نمایید");
 						//console.log("Error processing SQL: "+err.code);
 						alert("Error processing SQL: "+err.code);
